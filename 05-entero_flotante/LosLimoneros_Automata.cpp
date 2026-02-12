@@ -2,6 +2,13 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+/*
+	Montes Medina 		220111526
+	Limon Aranzazu 		220111773
+	Asael Lozano		220112555
+	Sandoval Placencia	220111748
+*/
+
 #include <iostream>
 #include <string>
 
