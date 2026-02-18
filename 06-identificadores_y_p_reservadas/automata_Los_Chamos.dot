@@ -1,0 +1,44 @@
+digraph Los_Chamos {
+
+    //Jose Jaime Nuñez Vazquez NC: 230120398
+    //Eliand Andres Murillo Ramos NC: 23012470
+    //Luis Angel Flores Espinosa NC: 210110157
+    //Juan Roberto Aguilar Molina NC: 210110268
+	
+    rankdir=LR;
+    node [shape = circle];
+
+    // Estados finales
+    E_ENTERO [shape=doublecircle];
+    E_FLOTANTE [shape=doublecircle];
+    E_NOTA_CIEN [shape=doublecircle];
+    E_IDENT [shape=doublecircle];
+    E_OP_ARIT [shape=doublecircle];
+
+    // Estado inicial
+    inicio [shape=point];
+    inicio -> E_INICIAL;
+
+    // Transiciones números
+    E_INICIAL -> E_ENTERO [label="digito"];
+    E_SIGNO -> E_ENTERO [label="digito"];
+    E_ENTERO -> E_ENTERO [label="digito"];
+    E_ENTERO -> E_PUNTO [label="."];
+    E_PUNTO -> E_FLOTANTE [label="digito"];
+    E_FLOTANTE -> E_FLOTANTE [label="digito"];
+
+    // Notación científica
+    E_ENTERO -> E_EXP [label="e,E"];
+    E_FLOTANTE -> E_EXP [label="e,E"];
+    E_EXP -> E_EXP_SIGNO [label="+,-"];
+    E_EXP -> E_NOTA_CIEN [label="digito"];
+    E_EXP_SIGNO -> E_NOTA_CIEN [label="digito"];
+    E_NOTA_CIEN -> E_NOTA_CIEN [label="digito"];
+
+    // Identificadores
+    E_INICIAL -> E_IDENT [label="letra,_"];
+    E_IDENT -> E_IDENT [label="letra,digito,_"];
+
+    // Operadores
+    E_INICIAL -> E_OP_ARIT [label="*,/,% ,+,-"];
+}	
