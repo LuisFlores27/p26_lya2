@@ -25,6 +25,7 @@
 #define E_COMENT     	13
 #define E_COMENT2     	14
 #define E_COMENT_F     	15 // final comentario
+#define E_RESERVADA		17 // final palabra resrvada
 
 #endif
 

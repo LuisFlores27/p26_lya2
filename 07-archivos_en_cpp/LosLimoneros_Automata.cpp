@@ -35,8 +35,11 @@ int analiza(string str)
 	};
 	
 	string include = "";
+	string reservada = "";
+	bool si_reservada = false;
 	
 	for (char c : str) {
+		reservada += c;
 		switch (c) {
 			
 			case '+': case '-':
@@ -142,6 +145,10 @@ int analiza(string str)
 				}
 		}
 		
+		for(string s : reservadas){
+			if (s == reservada) return E_RESERVADA;
+		}
+		
 		if (isdigit(c)){
 			switch (estado){
 				case E_INICIAL: case E_MAS_MENOS: case E_ENTERO:
@@ -204,6 +211,9 @@ void imprimirResultado(string token, int estado_final)
 			break;
 		case E_ID:
 			cout << "Es un identificador" << endl;
+			break;
+		case E_RESERVADA:
+			cout << "Palabra reservada" << endl;
 			break;
 		case E_OPERADOR:
 			cout << "Es un operador" << endl;
