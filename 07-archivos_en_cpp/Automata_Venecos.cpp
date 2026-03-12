@@ -145,11 +145,10 @@ int analiza(string str) {
 }
 
 void procesarPalabra(string palabra) {
-    //Llamamos a tu autómata
     int res = analiza(palabra);
 
-    //Imprimimos la palabra original para saber qué estamos evaluando
-    cout << "Token: [" << palabra << "] -> ";
+    
+    cout << "[" << palabra << "] -> ";
     switch (res) {
         case E_ENTERO: 
             cout << "Numero Entero" << endl; 
@@ -193,14 +192,14 @@ void procesarPalabra(string palabra) {
 } 
 
 string separarSimbolos(string linea) {
-//Buscamos y despegamos los "<<"
+
     size_t pos = 0;
     while ((pos = linea.find("<<", pos)) != string::npos) {
         linea.replace(pos, 2, " << ");
         pos += 4; 
     }
 
-    //Buscamos y despegamos los "//"
+    
     pos = 0;
     while ((pos = linea.find("//", pos)) != string::npos) {
         linea.replace(pos, 2, " // ");
@@ -253,7 +252,6 @@ int main (int argc, char *argv[])
 
         //Extraemos palabra por palabra de esa línea
         while(flujo >> palabra) {
-            //Se la mandamos a tu función para que el autómata la analice
             procesarPalabra(palabra);
             
         }
