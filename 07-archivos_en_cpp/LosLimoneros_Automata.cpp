@@ -206,6 +206,9 @@ void imprimirResultado(string token, int estado_final)
 		case E_NOTA_CIEN:
 			cout << "Es Notacion Cientifica" << endl;
 			break;
+		case E_GATO:
+			cout << "Es Gato" << endl;
+			break;
 		case E_INCLUDE:
 			cout << "Es #include" << endl;
 			break;
