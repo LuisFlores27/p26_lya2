@@ -1,0 +1,45 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+// Jose Jaime Nuñez Vazquez NC: 230120398
+// Eliand Andres Murillo Ramos NC: 23012470
+// Luis Angel Flores Espinosa NC: 210110157
+// Juan Roberto Aguilar Molina NC: 210110268
+
+#ifndef ESTADOS_H
+#define ESTADOS_H
+
+#define E_ERROR   0xFFFF
+
+#define E_INICIAL       0
+#define E_SIGNO         1
+#define E_ENTERO        2
+#define E_PUNTO         3
+#define E_FLOTANTE      4
+#define E_EXP           5
+#define E_EXP_SIGNO     6
+#define E_NOTA_CIEN     7
+#define E_IDENT         8
+#define E_RESERVADA     9
+#define E_OP_ARIT       10
+#define E_DELIMITADOR   11
+#define E_OPERADOR      12
+#define E_STRING        13
+#define E_PREPROC       14
+#define E_COMENTARIO    15
+
+
+#endif
+/*
+ * Editor modelines  -  https://www.wireshark.org/tools/modelines.html
+ *
+ * Local variables:
+ * c-basic-offset: 8
+ * tab-width: 8
+ * indent-tabs-mode: t
+ * End:
+ *
+ * vi: set shiftwidth=8 tabstop=8 noexpandtab:
+ * :indentSize=8:tabSize=8:noTabs=false:
+ */

@@ -1,0 +1,42 @@
+digraph AnalizadorLexico {
+    rankdir=LR;
+    fontname="Helvetica,Arial,sans-serif";
+    node [fontname="Helvetica,Arial,sans-serif"];
+    edge [fontname="Helvetica,Arial,sans-serif"];
+
+    
+    node [shape = doublecircle]; 
+    q_2 q_4 q_10 q_12 q_error;
+
+    
+    node [shape = circle]; 
+    q_0 q_1 q_13;
+
+    
+    inicio -> q_0 [label=" Inicio"];
+
+    
+    q_0 -> q_1 [label=" '+' , '-' "];
+    q_0 -> q_2 [label=" [0-9] "];
+    q_0 -> q_10 [label=" [a-z] "];
+
+    
+    q_1 -> q_2 [label=" [0-9] "];
+    q_2 -> q_2 [label=" [0-9] "];
+    
+    
+    q_2 -> q_13 [label=" '.' "];
+    q_13 -> q_4 [label=" [0-9] "];
+    q_4 -> q_4 [label=" [0-9] "];
+
+    
+    q_10 -> q_10 [label=" [a-z] , [0-9] "];
+
+
+    q_10 -> q_12 [label=" const, int, for, while"];
+
+
+    q_0 -> q_error [label=" invalidas"];
+    q_1 -> q_error [label=" invalidas"];
+    q_13 -> q_error [label=" invalidas"];
+}
