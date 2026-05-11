@@ -1,0 +1,11 @@
+
+Ejemplos prácticos:
+
+    Generar un PNG:
+    dot -Tpng grafo.dot -o imagen.png
+
+    Generar un SVG (vectorial):
+    dot -Tsvg grafo.dot -o imagen.svg
+
+    Generar un PDF:
+    dot -Tpdf grafo.dot -o grafo.pdf

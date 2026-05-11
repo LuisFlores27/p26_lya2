@@ -1,0 +1,28 @@
+digraph ""
+   {
+node [fontsize=10,width=".4", height=".4", margin=0];
+graph[fontsize=2];
+ 
+   n001 ;
+   n001 [label="E"] ;
+   n001 -> n002 ;
+   n002 [label="T"] ;
+   n001 -> n003 ;
+   n003 [label= "E'"] ;
+   
+   n004 [label= "F"]
+   n002 -> n004 ;
+   n005 [label= "T'"]
+   n002 -> n005 ;
+  
+  
+   n006 [label= "a"]
+   n004 -> n006 ; 
+   
+   n007 [label= "epsilón"]
+   n005 -> n007 ;
+
+   n008 [label= "epsilón"]
+   n003 -> n008 ;
+   }
+
