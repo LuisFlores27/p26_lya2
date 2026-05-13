@@ -5,18 +5,14 @@ digraph ""
     node [fontsize=10,width=".4", height=".4", margin=0];
     graph[fontsize=2];
 
-    // ---
     // raíz
-    // ---
 
     n001 [label="programa"];
     n002 [label="bloque"];
 
     n001 -> n002;
 
-    // ---
     // bloque -> { decls instrs }
-    // ---
 
     n003 [label="{"];
     n004 [label="decls"];
@@ -255,9 +251,7 @@ digraph ""
     n141 [label="a[i] < v"];
     n140 -> n141;
 
-    // ---
     // resto
-    // ---
 
     n150 [label="instr"];
     n151 [label="instrs"];
