@@ -1,0 +1,300 @@
+digraph ""
+{
+    rankdir=TB;
+
+    node [fontsize=10,width=".4", height=".4", margin=0];
+    graph[fontsize=2];
+
+    // ---
+    // raíz
+    // ---
+
+    n001 [label="programa"];
+    n002 [label="bloque"];
+
+    n001 -> n002;
+
+    // ---
+    // bloque -> { decls instrs }
+    // ---
+
+    n003 [label="{"];
+    n004 [label="decls"];
+    n005 [label="instrs"];
+    n006 [label="}"];
+
+    n002 -> n003;
+    n002 -> n004;
+    n002 -> n005;
+    n002 -> n006;
+
+    // ---
+    // declaraciones
+    // int i;
+    // int j;
+    // float v;
+    // float x;
+    // float[100] a;
+    // ---
+
+    n010 [label="decls"];
+    n004 -> n010;
+
+    // decl int i;
+    n011 [label="decl"];
+    n012 [label="decls"];
+
+    n010 -> n011;
+    n010 -> n012;
+
+    n013 [label="tipo"];
+    n014 [label="id:i"];
+    n015 [label=";"];
+
+    n011 -> n013;
+    n011 -> n014;
+    n011 -> n015;
+
+    n016 [label="basico:int"];
+    n013 -> n016;
+
+    // decl int j;
+    n020 [label="decl"];
+    n021 [label="decls"];
+
+    n012 -> n020;
+    n012 -> n021;
+
+    n022 [label="tipo"];
+    n023 [label="id:j"];
+    n024 [label=";"];
+
+    n020 -> n022;
+    n020 -> n023;
+    n020 -> n024;
+
+    n025 [label="basico:int"];
+    n022 -> n025;
+
+    // decl float v;
+    n030 [label="decl"];
+    n031 [label="decls"];
+
+    n021 -> n030;
+    n021 -> n031;
+
+    n032 [label="tipo"];
+    n033 [label="id:v"];
+    n034 [label=";"];
+
+    n030 -> n032;
+    n030 -> n033;
+    n030 -> n034;
+
+    n035 [label="basico:float"];
+    n032 -> n035;
+
+    // decl float x;
+    n040 [label="decl"];
+    n041 [label="decls"];
+
+    n031 -> n040;
+    n031 -> n041;
+
+    n042 [label="tipo"];
+    n043 [label="id:x"];
+    n044 [label=";"];
+
+    n040 -> n042;
+    n040 -> n043;
+    n040 -> n044;
+
+    n045 [label="basico:float"];
+    n042 -> n045;
+
+    // decl float[100] a;
+    n050 [label="decl"];
+    n051 [label="decls"];
+
+    n041 -> n050;
+    n041 -> n051;
+
+    n052 [label="tipo"];
+    n053 [label="id:a"];
+    n054 [label=";"];
+
+    n050 -> n052;
+    n050 -> n053;
+    n050 -> n054;
+
+    n055 [label="tipo"];
+    n056 [label="["];
+    n057 [label="num:100"];
+    n058 [label="]"];
+
+    n052 -> n055;
+    n052 -> n056;
+    n052 -> n057;
+    n052 -> n058;
+
+    n059 [label="basico:float"];
+    n055 -> n059;
+
+    // epsilon final decls
+    n060 [label="ε"];
+    n051 -> n060;
+
+    // ---
+    // instrucciones
+    // while(true){...}
+    // ---
+
+    n100 [label="instrs"];
+    n005 -> n100;
+
+    n101 [label="instr"];
+    n102 [label="instrs"];
+
+    n100 -> n101;
+    n100 -> n102;
+
+    // while ( true ) bloque
+
+    n103 [label="while"];
+    n104 [label="("];
+    n105 [label="bool"];
+    n106 [label=")"];
+    n107 [label="instr"];
+
+    n101 -> n103;
+    n101 -> n104;
+    n101 -> n105;
+    n101 -> n106;
+    n101 -> n107;
+
+    n108 [label="true"];
+    n105 -> n108;
+
+    // bloque interno
+
+    n110 [label="bloque"];
+    n107 -> n110;
+
+    n111 [label="{"];
+    n112 [label="decls"];
+    n113 [label="instrs"];
+    n114 [label="}"];
+
+    n110 -> n111;
+    n110 -> n112;
+    n110 -> n113;
+    n110 -> n114;
+
+    // decls vacio
+
+    n115 [label="ε"];
+    n112 -> n115;
+
+    // ---
+    // do i = i + 1;
+    // ---
+
+    n120 [label="instr"];
+    n121 [label="instrs"];
+
+    n113 -> n120;
+    n113 -> n121;
+
+    n122 [label="do"];
+    n123 [label="instr"];
+    n124 [label="while"];
+    n125 [label="("];
+    n126 [label="bool"];
+    n127 [label=")"];
+    n128 [label=";"];
+
+    n120 -> n122;
+    n120 -> n123;
+    n120 -> n124;
+    n120 -> n125;
+    n120 -> n126;
+    n120 -> n127;
+    n120 -> n128;
+
+    // loc = expr
+
+    n130 [label="loc"];
+    n131 [label="="];
+    n132 [label="expr"];
+    n133 [label=";"];
+
+    n123 -> n130;
+    n123 -> n131;
+    n123 -> n132;
+    n123 -> n133;
+
+    n134 [label="id:i"];
+    n130 -> n134;
+
+    n135 [label="expr + term"];
+    n132 -> n135;
+
+    n136 [label="id:i"];
+    n137 [label="+"];
+    n138 [label="num:1"];
+
+    n135 -> n136;
+    n135 -> n137;
+    n135 -> n138;
+
+    // condición while
+
+    n140 [label="rel"];
+    n126 -> n140;
+
+    n141 [label="a[i] < v"];
+    n140 -> n141;
+
+    // ---
+    // resto
+    // ---
+
+    n150 [label="instr"];
+    n151 [label="instrs"];
+
+    n121 -> n150;
+    n121 -> n151;
+
+    n152 [label="do j = j - 1 while(a[j] > v);"];
+    n150 -> n152;
+
+    n160 [label="instr"];
+    n161 [label="instrs"];
+
+    n151 -> n160;
+    n151 -> n161;
+
+    n162 [label="if(i >= j) break;"];
+    n160 -> n162;
+
+    n170 [label="instr"];
+    n171 [label="instrs"];
+
+    n161 -> n170;
+    n161 -> n171;
+
+    n172 [label="x = a[i];"];
+    n173 [label="a[i] = a[j];"];
+    n174 [label="a[j] = x;"];
+
+    n170 -> n172;
+    n170 -> n173;
+    n170 -> n174;
+
+    n180 [label="ε"];
+    n171 -> n180;
+
+    // instrs final
+    n190 [label="ε"];
+    n102 -> n190;
+}
